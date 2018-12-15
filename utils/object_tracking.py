@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from sift_features_matcher import *
+from sift_features_matcher import SiftFeaturesMatcher
 
 MATCHES_MIN_THRESHOLD = 20
 class ObjectTracking(object):

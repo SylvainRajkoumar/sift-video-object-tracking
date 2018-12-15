@@ -1,5 +1,5 @@
 import cv2
-from utils/object_tracking import ObjectTracking
+from utils.object_tracking import ObjectTracking
 from PyQt5.QtCore import QTimer
 from PyQt5.QtWidgets import QDialog
 
