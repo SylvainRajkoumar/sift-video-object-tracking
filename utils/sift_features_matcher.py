@@ -11,12 +11,13 @@ class SiftFeaturesMatcher(object):
 
     def __init__(self):
         self.sift = cv2.xfeatures2d.SIFT_create()
+
         self.query_image = cv2.imread("query_images/astrophysics_book.jpg", cv2.IMREAD_GRAYSCALE)
         self.query_keypoints, self.query_descriptors = self.sift.detectAndCompute(self.query_image, None)
         self.train_descriptors, self.train_keypoints = None, None
+
         index_params = dict(algorithm=FLANN_INDEX_KDTREE, trees=TREES)
         search_params = dict()
-
         self.flann_matcher = cv2.FlannBasedMatcher(index_params, search_params)
 
     def get_good_matches(self, image):
@@ -57,5 +58,7 @@ class SiftFeaturesMatcher(object):
 
         return homography_result_image
 
-    def set_query_image(self):
-        pass
+    def set_query_image(self, image_path):
+        image = cv2.imread(image_path)
+        grayframe = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        self.train_keypoints, self.train_descriptors = self.sift.detectAndCompute(grayframe, None)

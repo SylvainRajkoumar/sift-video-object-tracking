@@ -3,7 +3,6 @@ from utils.object_tracking import ObjectTracking
 from PyQt5.QtCore import QTimer
 from PyQt5.QtWidgets import QDialog
 
-
 class Controller(object):
 
     def __init__(self, view):
