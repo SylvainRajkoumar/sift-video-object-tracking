@@ -59,6 +59,5 @@ class SiftFeaturesMatcher(object):
         return homography_result_image
 
     def set_query_image(self, image_path):
-        image = cv2.imread(image_path)
-        grayframe = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        self.train_keypoints, self.train_descriptors = self.sift.detectAndCompute(grayframe, None)
+        self.query_image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+        self.query_keypoints, self.query_descriptors = self.sift.detectAndCompute(self.query_image, None)

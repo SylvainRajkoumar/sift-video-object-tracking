@@ -27,7 +27,7 @@ class View(QMainWindow):
     def get_image_path(self):
         filename = QFileDialog.getOpenFileName(self,"Ouvrir une image", "./", "Image Files (*.png *.jpg *.bmp)")[0]
         if(os.path.exists(filename)):
-            self.control.image_face_detection(filename)
+            self.control.load_image(filename)
     
     def updateView(self, image):
         height, width, channel = image.shape

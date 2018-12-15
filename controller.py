@@ -14,8 +14,8 @@ class Controller(object):
         self.capture = cv2.VideoCapture(0)
         self.webcam_enabled = False
 
-    def image_face_detection(self, imagePath):
-        pass
+    def load_image(self, image_path):
+        self.object_tracking.change_reference_image(image_path)
 
     def toggle_webcam_timer(self):
         if self.webcam_enabled:
@@ -25,7 +25,7 @@ class Controller(object):
             self.capture.release()
         else:
             self.capture.open(0)
-            self.webcam_timer.start(40)
+            self.webcam_timer.start(33)
 
         self.webcam_enabled = not self.webcam_enabled
 

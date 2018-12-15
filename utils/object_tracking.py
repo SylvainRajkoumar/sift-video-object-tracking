@@ -18,3 +18,6 @@ class ObjectTracking(object):
                 result_image = self.sift_features_matcher.draw_homography(image, perspective_transform)
                 return result_image
         return image
+
+    def change_reference_image(self, image_path):
+        self.sift_features_matcher.set_query_image(image_path)
